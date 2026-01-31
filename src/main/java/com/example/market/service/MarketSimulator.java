@@ -33,4 +33,15 @@ public class MarketSimulator {
                 .map(PriceTick::price)
                 .toList();
     }
+
+    //added for a testing purpose will be used in future when bots set prices
+    public void setPrices(String symbol, List<Double> prices) {
+        marketData.put(
+            symbol,
+            prices.stream()
+                .map(p -> new PriceTick(System.currentTimeMillis(), p))
+                .toList()
+        );
+    }
+
 }
